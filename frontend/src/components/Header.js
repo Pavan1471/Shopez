@@ -3,6 +3,7 @@ import Logo from './Logo'
 import { GrSearch } from "react-icons/gr";
 import { FaRegCircleUser } from "react-icons/fa6";
 import { FaShoppingCart } from "react-icons/fa";
+import { FaRobot } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import SummaryApi from '../common';
@@ -57,7 +58,7 @@ const Header = () => {
       <div className=' h-full container mx-auto flex items-center px-4 justify-between'>
             <div className=''>
                 <Link to={"/"}>
-                    <Logo w={90} h={50}/>
+                    {/* <Logo w={90} h={50}/> */}
                 </Link>
             </div>
 
@@ -70,8 +71,21 @@ const Header = () => {
 
 
             <div className='flex items-center gap-7'>
+            {
+                    user?._id && (
+                     <Link to={"/bot"}>
+                      <div className='text-3xl cursor-pointer relative flex justify-center' >
+                        
+                        <FaRobot />
+                  
+                  </div>
+                     </Link>
+                    )
+                  }
                 
                 <div className='relative flex justify-center'>
+
+                
 
                   {
                     user?._id && (
@@ -96,7 +110,9 @@ const Header = () => {
                             user?.role === ROLE.ADMIN && (
                               <Link to={"/admin-panel/all-products"} className='whitespace-nowrap hidden md:block hover:bg-slate-100 p-2' onClick={()=>setMenuDisplay(preve => !preve)}>Admin Panel</Link>
                             )
+                            
                           }
+                          
                          
                         </nav>
                       </div>

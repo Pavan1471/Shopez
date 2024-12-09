@@ -95,7 +95,7 @@ const App = () => {
   const [userInput, setUserInput] = useState("");
   const [messages, setMessages] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const apiKey = "AIzaSyBh0R2i-wMJpeclLj0LrhGA_6Ym-wK7dKQ";
+  const apiKey = "AIzaSyAgwCdBjrpqwtTqES5HX1t9TK7hCwTGseY";
 
   const genAI = new GoogleGenerativeAI(apiKey);
   const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
